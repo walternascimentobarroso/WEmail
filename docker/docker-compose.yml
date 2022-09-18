@@ -1,18 +1,18 @@
 version: "3.9"
-name: default
+name: wemail
 services:
-  nginx_default:
-    container_name: nginx_default
-    image: nginx:1.17.8
+  nginx_wemail:
+    container_name: nginx_wemail
+    image: nginx:1.23.1
     ports:
       - 80:80
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ../:/var/www
     links:
-      - php_default
-  php_default:
-    container_name: php_default
+      - php_wemail
+  php_wemail:
+    container_name: php_wemail
     build: ./php
     working_dir: /var/www
     volumes:
